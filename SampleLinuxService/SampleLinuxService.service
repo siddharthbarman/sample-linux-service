@@ -1,0 +1,15 @@
+﻿[Unit]
+Description=Sample Linux Service
+
+[Service]
+Type=notify
+WorkingDirectory=/usr/sbin/SampleLinuxService/
+ExecStart=/usr/bin/dotnet /usr/sbin/SampleLinuxService/SampleLinuxService.dll
+Environment=DOTNET_ROOT=/usr/lib64/dotnet
+User=ec2-user
+SyslogIdentifier=SampleLinuxService
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
